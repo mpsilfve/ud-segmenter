@@ -1,0 +1,300 @@
+kävelyreitti>/kävelyreitti
+iii>/iii
+jää/jää llä>/case=ade
+kävely>/kävely
+avaa/avata >/person=3,number=singv
+hausko/hauska j/number=plur a>/case=par
+erikois/erikoinen i/number=plur a>/case=par
+näkökulm/näkökulma i/number=plur a>/case=par
+kaupunk/kaupunki iin>/case=ill
+samanlainen>/samanlainen
+tunne>/tunne
+ystävä/ystävä mme>/person[psor]=1
+vei/viedä >/number=singv,person=3,tense=past
+meidät/case=acc,minä >/person=1,number=plur
+tuomiokirko/tuomiokirkko n>/case=gen
+torn/torni iin>/case=ill
+erilaise/erilainen lta>/case=abl
+maailma>/maailma
+näytti/näyttää kään/clitic=kaan >/number=singv,person=3,tense=past
+tiesi/tietää >/person=3,number=singv,tense=past
+millainen>/millainen
+turku>/turku
+on/olla >/number=singv,person=3
+karta/kartta lla>/case=ade
+se>/se
+hämmästytti/hämmästyttää >/person=3,number=singv,tense=past
+silti/silti kin>/clitic=kin
+aninkaist/aninkainen e/number=plur n>/case=gen
+silta>/silta
+on/olla >/person=3,number=singv
+kävelyreitti>/kävelyreitti
+ii>/ii
+tuomiokirkko>/tuomiokirkko
+rakennukse/rakennus na>/case=ess
+tekee/tehdä >/person=3,number=singv
+minuu/minä n/case=ill >/person=1
+suure/suuri n>/case=gen
+vaikutukse/vaikutus n>/case=gen
+pidän/pitää >/number=singv,person=1
+se/se n>/case=gen
+majesteet/majesteetti illisuude/derivation=vs sta>/case=ela
+aikakausi/aikakausi e/number=plur n>/case=gen
+kerroksellisuude/kerroksellisuus sta>/case=ela
+sit/se ä>/case=par
+ei/ei >/number=singv,person=3
+missään>/mikään,case=ine
+vaihee/vaihe ssa>/case=ine
+restauroi/restauroida tu/partform=past,voice=pass >/number=singv
+sama/sama lla>/case=ade
+t/tapa,number=plur avoin>/case=ins
+uppsala/uppsala n>/case=gen
+tuomiokirkko/tuomiokirkko a>/case=par
+kävelyreissu>/kävelyreissu
+aurajoe/aurajoki n>/case=gen
+jääkansi>/jääkansi
+oli/tense=past,olla >/number=singv,person=3
+kestävä>/kestävä
+ihmise/ihminen t>/number=plur
+uskaltautui/uskaltautua vat/number=plurv >/person=3,tense=past
+si/se lle>/case=all
+kävele/kävellä mään/case=ill >/verbform=inf,number=singv
+lauantai/lauantai na>/case=ess
+m/minä e/number=plur kin/clitic=kin >/person=1
+oti/ottaa mme/number=plurv >/person=1,tense=past
+koiru/koira n>/case=gen
+lähdi/lähteä mme/number=plurv >/person=1,tense=past
+kulke/kulkea maan/case=ill >/number=singv,verbform=inf
+joke/joki a>/case=par
+yläjuoksu/yläjuoksu lle>/case=all
+päin>/päin
+eläin>/eläin
+oli/tense=past,olla >/number=singv,person=3
+ikionnellinen>/ikionnellinen
+se>/se
+ravasi/ravata >/number=singv,person=3,tense=past
+käytännö/käytäntö ssä>/case=ine
+s/case=par iksakkia>/siksakki
+joe/joki n>/case=gen
+toise/toinen n>/case=gen
+penka/penkka n>/case=gen
+muuri/muuri lta>/case=abl
+toise/toinen lle>/case=all
+kävi/käydä >/number=singv,person=3,tense=past
+tervehtimä/tervehtiä ssä/case=ine >/number=singv,verbform=inf
+ka/case=par i/number=plur kkia>/kaikki
+vastaantulijoit/vastaantulija a>/case=par,number=plur
+varmuude/varmuus n>/case=gen
+vuoksi>/vuoksi
+kyräili/kyräillä >/person=3,number=singv,tense=past
+jokaist/jokainen a>/case=par
+hiihtäjä/hiihtäjä ä>/case=par
+delilah>/delilah
+eilinen>/eilinen
+delilah-musikaali>/delilahmusikaali
+oli/tense=past,olla >/number=singv,person=3
+onnistunut>/onnistunut
+lopputyö/lopputyö ksi>/case=tra
+sisällö/sisältö stä>/case=ela
+ei/ei >/number=singv,person=3
+suure/suuri mmin>/degree=cmp,derivation=sti
+nouss/nousta ut/partform=past >/number=singv
+teesi/teesi ä>/case=par
+julistust/julistus a>/case=par
+oli/olla,tense=past >/number=singv,person=3
+pelkkä/pelkkä ä>/case=par
+viihdettä/viihde kin/clitic=kin >/case=par
+kiva>/kiva
+katsoa/katsoa >/number=singv,verbform=inf
+käsikirjoittaja>/käsikirjoittaa,derivation=ja
+suvi>/suvi
+kanniainen>/kanniainen
+oli/tense=past,olla >/number=singv,person=3
+miele/mieli stä/case=ela ni>/person[psor]=1
+onnistun/onnistua ut/partform=past >/number=singv
+ohjaukse/ohjaus ss/case=ine aan>/person[psor]=3
+käsikirjoitukse/käsikirjoitus ssa>/case=ine
+lopu/loppu n>/case=gen
+t/number=plur apahtumat>/tapahtuma
+alkoi/alkaa vat/number=plurv >/person=3,tense=past
+olla/olla >/number=singv,verbform=inf
+dramaturgise/dramaturginen sti>/derivation=sti
+puuro/puuro a>/case=par
+innostus>/innostus
+ol/olla isi/mood=cnd >/number=singv,person=3
+vie/viedä nyt/partform=past >/number=singv
+tarina/tarina a>/case=par
+ol/olla isi/mood=cnd >/person=3,number=singv
+tull/tulla ut/partform=past >/number=singv
+ongelma>/ongelma
+mihi/mikä n>/case=ill
+jutu/juttu n>/case=gen
+päättää/päättää >/number=singv,person=3
+roolitus>/roolitus
+oli/tense=past,olla >/number=singv,person=3
+onnistunut>/onnistunut
+hieno/hieno a>/case=par
+rooleih/rooli i/number=plur n>/case=ill
+oli/tense=past,olla >/number=singv,person=3
+löyty/löytyä nyt/partform=past >/number=singv
+oikea/oikea n>/case=gen
+ikäis/ikäinen i/number=plur ä>/case=par
+laula/laulaa vi/partform=pres,number=plurv a>/case=par
+näyttelijöi/näyttelijä t/number=plur ä>/case=par
+salla>/salla
+närä/närä n>/case=gen
+esittämä/esittää,partform=agt >/number=singv
+pornokaupa/pornokauppa n>/case=gen
+paha>/paha
+puuma>/puuma
+tarja>/tarja
+vuola/vuola n>/case=gen
+elämäpakoinen>/elämäpakoinen
+leskirouva>/leskirouva
+lunasti/lunastaa vat/number=plurv >/person=3,tense=past
+paikka/paikka nsa/person[psor]=3 >/number=plur
+lavastus>/lavastus
+oli/tense=past,olla >/number=singv,person=3
+sit/se ä>/case=par
+mit/mikä ä>/case=par
+lopputyöbudjeti/lopputyöbudjetti lla>/case=ade
+saa/saada >/number=singv,person=3
+se>/se
+mahdollisti/mahdollistaa >/tense=past,number=singv,person=3
+se/se n>/case=gen
+ohjaaja>/ohjaaja
+kanniainen>/kanniainen
+oli/tense=past,olla >/number=singv,person=3
+uskaltan/uskaltaa ut/partform=past >/number=singv
+ottaa/ottaa >/number=singv,verbform=inf
+tila/tila a>/case=par
+käyttöö/käyttö n>/case=ill
+ammattiteattere/ammattiteatteri i/number=plur ssa/case=ine kin>/clitic=kin
+lavaste/lavastaa taan>/voice=pass
+päänäyttämö>/päänäyttämö
+ohjaaja>/ohjaaja
+tuo/tuoda >/person=3,number=singv
+kaike/kaikki n>/case=gen
+tapahtuma/tapahtuma n>/case=gen
+etureuna/etureuna an>/case=ill
+neljä/neljä n>/case=gen
+neliö/neliö n>/case=gen
+aluee/alue lle>/case=all
+miele/mieli stä/case=ela ni>/person[psor]=1
+juha>/juha
+malmivaara>/malmivaara
+on/olla >/number=singv,person=3
+ainoa>/ainoa
+suomalainen>/suomalainen
+ohjaaja>/ohjaaja
+joka>/joka
+kykenee/kyetä >/person=3,number=singv
+alista/alistaa maan/case=ill >/verbform=inf,number=singv
+kaike/kaikki n>/case=gen
+tila/tila n>/case=gen
+käyttöö/käyttö nsä/person[psor]=3 >/case=ill
+mielenkiintoist/mielenkiintoinen a>/case=par
+oli/tense=past,olla >/number=singv,person=3
+kappale/kappale ide/number=plur n>/case=gen
+valinta>/valinta
+kuusikymmentäluvu/kuusikymmentäluku n>/case=gen
+suomalainen>/suomalainen
+iskelmä>/iskelmä
+oli/tense=past,olla >/number=singv,person=3
+valjastet/valjastaa tu/voice=pass,partform=past >/number=singv
+kuvitta/kuvittaa maan/case=ill >/number=singv,verbform=inf
+tämä/tämä n>/case=gen
+päivä/päivä n>/case=gen
+suomalaise/suomalainen n>/case=gen
+pornokaupa/pornokauppa n>/case=gen
+maailma/maailma a>/case=par
+ensimmäise/ensimmäinen n>/case=gen
+näytökse/näytös n>/case=gen
+lopetta/lopettaa va/partform=pres >/number=singv
+laulu>/laulu
+sirkusprinsessa>/sirkusprinsessa
+oli/tense=past,olla >/number=singv,person=3
+vere/veri t>/number=plur
+pysäyttä/pysäyttää vä/partform=pres >/number=singv
+valinta>/valinta
+pornokaupa/pornokauppa n>/case=gen
+omistaja>/omistaja
+kertoo/kertoa >/number=singv,person=3
+ole/olla va/partform=pres n/case=gen >/number=singv
+aja/aika n>/case=gen
+esitellä/esitellä >/number=singv,verbform=inf
+uusi>/uusi
+sirkusprinsessa>/sirkusprinsessa
+intimihieroja/intiimihieroja t>/number=plur
+joutu/joutua vat/number=plurv >/person=3
+kauppaa/kaupata maan/case=ill >/number=singv,verbform=inf
+it/itse,case=par seään>/person[psor]=3
+keski-ikäisi/keskiikäinen lle/case=all >/number=plur
+lihavi/lihava lle/case=all >/number=plur
+miehi/mies lle/case=all >/number=plur
+laului/laulu sta/case=ela >/number=plur
+ainoa>/ainoa
+kritisoita/kritisoida,voice=pass va/partform=pres >/number=singv
+on/olla >/number=singv,person=3
+miele/mieli stä/case=ela ni>/person[psor]=1
+loppukappalee/loppukappale n>/case=gen
+valinta>/valinta
+mit/mikä ä>/case=par
+ei/ei >/person=3,number=singv
+pelastan/pelastaa ut/partform=past >/number=singv
+kaunis>/kaunis
+taustaprojisointi/taustaprojisointi kaan>/clitic=kaan
+grande>/grande
+finalen>/finale
+pitää/pitää >/number=singv,person=3
+olla/olla >/verbform=inf,number=singv
+grande>/grande
+ei/ei kä/clitic=ka >/number=singv,person=3
+piene/pieni stä>/case=ela
+luritukse/luritus sta>/case=ela
+tule>/tulla
+muut/muu a>/case=par
+kiukkuise/kiukkuinen ksi>/case=tra
+lopputyö>/lopputyö
+pitä/pitää isi/mood=cnd >/number=singv,person=3
+mennä/mennä >/number=singv,verbform=inf
+katso/katsoa maan/case=ill >/verbform=inf,number=singv
+tutu/tuttu n>/case=gen
+kanssa>/kanssa
+taideakatemia/taideakatemia an>/case=ill
+delilah-musikaali/delilahmusikaali a>/case=par
+se>/se
+on/olla >/number=singv,person=3
+parem/degree=cmp pi>/hyvä
+eilinen>/eilinen
+mahalasku>/mahalasku
+millainen>/millainen
+minä/minä >/person=1
+olen/olla >/number=singv,person=1
+näin/nähdä >/number=singv,person=1,tense=past
+lehde/lehti ssä>/case=ine
+ilmoitukse/ilmoitus n>/case=gen
+jo/joka lla>/case=ade
+etsit/etsiä tiin/voice=pass >/tense=past
+tutkimushenkilöi/tutkimushenkilö t/number=plur ä>/case=par
+alzheimer-projekt/alzheimerprojekti iin>/case=ill
+jo/jokin llekin>/case=all
+turu/turku n>/case=gen
+yliopisto/yliopisto n>/case=gen
+laitokse/laitos lle>/case=all
+leikkasin/leikata >/number=singv,person=1,tense=past
+ilmoitukse/ilmoitus n>/case=gen
+lähetin/lähettää >/number=singv,person=1,tense=past
+vanhemmi/vanhempi ll/case=all e/number=plur ni>/person[psor]=1
+molemma/molemmat t>/number=plur
+oli/olla,tense=past vat/number=plurv >/person=3
+kiinnostunei/kiinnostunut t/number=plur a>/case=par
+h/hän e/number=plur >/person=3
+oli/olla,tense=past vat/number=plurv kin/clitic=kin >/person=3
+otta/ottaa neet/partform=past >/number=plurv
+yhteytt/yhteys ä>/case=par
+tutkimusvastaava/tutkimusvastaava an>/case=ill
+joka>/joka
+oli/tense=past,olla >/number=singv,person=3
+sanon/sanoa ut/partform=past >/number=singv
+isä/isä n/case=gen i>/person[psor]=1
