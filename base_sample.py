@@ -3,6 +3,7 @@ from collections import defaultdict
 from random import random, shuffle, seed
 from math import log
 from distance import levenshtein
+from tqdm import tqdm
 
 from split import sample_next, sample_nth, get_init_split, get_str
 
@@ -141,132 +142,130 @@ def filter_labels(labels):
 #                                          "num=PLV","num=SGV","case=NOM"]]
 
 
-train_fn = argv[1]
-test_fn = argv[2]
+def segment(train_data, test_data, N=1000):
+    shuffle(train_data)
 
-train_data =  open(train_fn).read().split('\n')
-shuffle(train_data)
-test_data =  open(test_fn).read().split('\n')
+    all_data = train_data + test_data
+    all_data = [l.split(' ') for l in all_data if l != '']
 
-all_data = train_data + test_data
-all_data = [l.split(' ') for l in all_data if l != '']
+    base_jcounts = defaultdict(lambda : defaultdict(lambda : 0.0))
+    base_counts = defaultdict(lambda : 0.0)
+    jcounts = defaultdict(lambda : defaultdict(lambda : 0.0))
+    counts = defaultdict(lambda : 0.0)
+    tcounts = defaultdict(lambda : defaultdict(lambda : 1.0))
 
-base_jcounts = defaultdict(lambda : defaultdict(lambda : 0.0))
-base_counts = defaultdict(lambda : 0.0)
-jcounts = defaultdict(lambda : defaultdict(lambda : 0.0))
-counts = defaultdict(lambda : 0.0)
-tcounts = defaultdict(lambda : defaultdict(lambda : 1.0))
+    params = (base_jcounts,
+            base_counts,
+            jcounts,
+            counts,
+            tcounts)
+    all_labels = set()
+    for fields in all_data:
+        wf = fields[-1] + ">"
+        fields = filter_labels(fields[:len(fields) - 1])
+        all_labels.update(fields)
+        for i in range(len(wf)):
+            for j in range(i+1, len(wf) + 1):
+                base_counts[wf[i:j]] += 1
+                for l in fields:
+                    base_jcounts[wf[i:j]][gl(l)] += 1
+    #                base_counts[wf[i:j]] += 1
+    #                base_counts[gl(l)] += 1
+    #    for l in fields:
+    #        base_jcounts[""][gl(l)] += 1
+    #        base_counts[""] += 1
+    #        base_counts[gl(l)] += 1
 
-params = (base_jcounts,
-          base_counts,
-          jcounts,
-          counts,
-          tcounts)
-all_labels = set()
-for fields in all_data:
-    wf = fields[-1] + ">"
-    fields = filter_labels(fields[:len(fields) - 1])
-    all_labels.update(fields)
-    for i in range(len(wf)):
-        for j in range(i+1, len(wf) + 1):
-            base_counts[wf[i:j]] += 1
-            for l in fields:
-                base_jcounts[wf[i:j]][gl(l)] += 1
-#                base_counts[wf[i:j]] += 1
-#                base_counts[gl(l)] += 1
-#    for l in fields:
-#        base_jcounts[""][gl(l)] += 1
-#        base_counts[""] += 1
-#        base_counts[gl(l)] += 1
+    for l in all_labels:
+        base_jcounts[""][gl(l)] += 1
+        base_counts[""] += 1
+        base_counts[gl(l)] += 1
 
-for l in all_labels:
-    base_jcounts[""][gl(l)] += 1
-    base_counts[""] += 1
-    base_counts[gl(l)] += 1
+    splits = []
+    assignments = []
+    labels = []
+    wfs = []
 
-splits = []
-assignments = []
-labels = []
-wfs = []
+    for fields in all_data:
+        wf =  fields[-1] + ">"
+        fields = filter_labels(fields[:len(fields) - 1])
+        wfs.append(wf)
+        labels.append(fields)
+        s = get_init_split(wf)
+        s = sample_nth(100,s,len(fields))
+        assignment = get_assignment(s,fields,wf,ALPHA,params)
+        splits.append(s)
+        assignments.append(assignment)
+        update_counts(s,assignment,wf,params,1)
 
-for fields in all_data:
-    wf =  fields[-1] + ">"
-    fields = filter_labels(fields[:len(fields) - 1])
-    wfs.append(wf)
-    labels.append(fields)
-    s = get_init_split(wf)
-    s = sample_nth(100,s,len(fields))
-    assignment = get_assignment(s,fields,wf,ALPHA,params)
-    splits.append(s)
-    assignments.append(assignment)
-    update_counts(s,assignment,wf,params,1)
-
-N = 1000
-
-best_splits = []
-best_assignment = []
-best_H = float('inf')
-logfile = open("logfile",'w')
-for n in range(N):
-    for j, s in enumerate(splits):
-        new_split = sample_next(splits[j],len(labels[j]))
-        new_assignment = get_assignment(new_split, labels[j], wfs[j], ALPHA, params)
-        old_prob = get_prob(splits[j], assignments[j],wfs[j],ALPHA,params)
-        new_prob = get_prob(new_split, new_assignment,wfs[j],ALPHA,params)
-        if (new_prob / old_prob)**2 > random():
-#        if new_prob > old_prob:
-            update_counts(splits[j],assignments[j],wfs[j],params,-1)
-            splits[j] = new_split
-            assignments[j] = new_assignment
-            update_counts(splits[j],assignments[j],wfs[j],params,1)
-    H = entropy(params)
-    logfile.write("%.3f\n" % H)
-    logfile.flush()
-    if H < best_H:
-        best_splits = list(splits)
-        best_assignments = list(assignments)
-        best_H = H
-    stderr.write("%u of passes %u, %.3f\r"# '>':tense=fut %f\r"#, ssa:ine %f isi:cond %f i:pln %f \r" % 
-                 % (n+1,N,entropy(params),
-#                 params[JC][">"][gl("tense=fut")]/params[C][gl("tense=fut")],
-#                  params[JC]["isi"][gl("mood=cnd")]/params[C][gl("mood=cnd")],
-#                  params[JC]["i"][gl("number=plur")]/params[C][gl("number=plur")],)
-                    ))
+    best_splits = []
+    best_assignment = []
+    best_H = float('inf')
+    logfile = open("logfile",'w')
+    for n in range(N):
+        for j, s in enumerate(splits):
+            new_split = sample_next(splits[j],len(labels[j]))
+            new_assignment = get_assignment(new_split, labels[j], wfs[j], ALPHA, params)
+            old_prob = get_prob(splits[j], assignments[j],wfs[j],ALPHA,params)
+            new_prob = get_prob(new_split, new_assignment,wfs[j],ALPHA,params)
+            if (new_prob / old_prob)**2 > random():
+    #        if new_prob > old_prob:
+                update_counts(splits[j],assignments[j],wfs[j],params,-1)
+                splits[j] = new_split
+                assignments[j] = new_assignment
+                update_counts(splits[j],assignments[j],wfs[j],params,1)
+        H = entropy(params)
+        logfile.write("%.3f\n" % H)
+        logfile.flush()
+        if H < best_H:
+            best_splits = list(splits)
+            best_assignments = list(assignments)
+            best_H = H
+        stderr.write("%u of passes %u, %.3f\r"# '>':tense=fut %f\r"#, ssa:ine %f isi:cond %f i:pln %f \r" % 
+                    % (n+1,N,entropy(params),
+    #                 params[JC][">"][gl("tense=fut")]/params[C][gl("tense=fut")],
+    #                  params[JC]["isi"][gl("mood=cnd")]/params[C][gl("mood=cnd")],
+    #                  params[JC]["i"][gl("number=plur")]/params[C][gl("number=plur")],)
+                        ))
 
 
-stderr.write('\n')
-ssac = 0
-inc = 0
+    stderr.write('\n')
+    ssac = 0
+    inc = 0
+    
+    result = []
+    with tqdm(total=len(best_assignments)-len(train_data)) as pbar:
+        for i,a  in enumerate(best_assignments):
+            if i + 1 < len(train_data):
+                continue
+            best_split = best_splits[i]
+            best_assign = best_assignments[i]
+            best_score = get_prob(best_split, best_assign,wfs[i],ALPHA,params)
 
-for i,a  in enumerate(best_assignments):
-    if i + 1 < len(train_data):
-        continue
-    best_split = best_splits[i]
-    best_assign = best_assignments[i]
-    best_score = get_prob(best_split, best_assign,wfs[i],ALPHA,params)
+            split = best_split
+            assign = best_assign
 
-    split = best_split
-    assign = best_assign
+            for k in range(5000):
+                old_score = get_prob(split, assign,wfs[i],ALPHA,params)
+                new_split = sample_next(split,len(labels[i]) - 1)
+                new_assign = get_assignment(new_split, labels[i], wfs[i], ALPHA, params)
+                new_score = get_prob(new_split, new_assign,wfs[i],ALPHA,params)
 
-    for k in range(5000):
-        old_score = get_prob(split, assign,wfs[i],ALPHA,params)
-        new_split = sample_next(split,len(labels[i]) - 1)
-        new_assign = get_assignment(new_split, labels[i], wfs[i], ALPHA, params)
-        new_score = get_prob(new_split, new_assign,wfs[i],ALPHA,params)
+                if (new_score/old_score)**2 > random():
+                    split = new_split
+                    assign = new_assign
+                if new_score > best_score:
+                    best_split = split
+                    best_assign = assign
+                    best_score = new_score
 
-        if (new_score/old_score)**2 > random():
-            split = new_split
-            assign = new_assign
-        if new_score > best_score:
-            best_split = split
-            best_assign = assign
-            best_score = new_score
-
-    ss = [get_str(j,best_split,wfs[i]) for j in range(len(best_split) - 1)]
-#    ss = [get_str(j,best_split,wfs[i]) for j in range(len(best_split))]
-    for j, s in enumerate(ss):
-        stdout.write("%s/%s"%(s,','.join(best_assign[j])))
-        if j + 1 < len(ss):
-            stdout.write(" ")
-    print()
-    stdout.flush()
+            ss = [get_str(j,best_split,wfs[i]) for j in range(len(best_split) - 1)]
+            temp = []
+        #    ss = [get_str(j,best_split,wfs[i]) for j in range(len(best_split))]
+            for j, s in enumerate(ss):
+                temp.append("%s/%s"%(s,','.join(best_assign[j])))
+                if j + 1 < len(ss):
+                    temp.append(" ")
+            result.append(''.join(temp))
+            pbar.update(1)
+    return '\n'.join(result)
